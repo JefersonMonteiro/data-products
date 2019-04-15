@@ -1,0 +1,32 @@
+---
+title: "Project Map with leaflet"
+author: "Jeferson Santos Monteiro"
+date: "15 de abril de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Things to do in Belo Horizonte, Minas Gerais - Brazil
+
+```{r echo= FALSE, eval=FALSE}
+library(leaflet)
+
+turism = data.frame(
+		lat = c(-19.930943,-19.922920,-19.952509,-19.932085,-19.955504,-19.925721,-19.844147,-19.854499,-19.858255),
+		lng=c(-43.938749,-43.943333,-43.912806,-43.938107,-43.907251,-43.933517,-43.968091,-43.970129,-43.979034),
+		labels=c("Memorial Minas Gerais - Belo Horizonte", "Central Market - Belo Horizonte","Lookout Mangabeiras","Liberty Square","Mangabeiras Park","Palace of the Arts","Pampulha Lagoon","Modern Set of Pampulha","Church of St. Francis of Assisi")
+		)
+
+m = leaflet(turism) %>% 
+            addTiles %>% 
+            addMarkers(popup=~labels)
+
+print(m)
+```
+
+
+
+
